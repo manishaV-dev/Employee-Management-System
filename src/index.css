@@ -17,4 +17,13 @@ body {
   border-radius: 50px;
 }
 
+#alltask::-webkit-scrollbar{
+  background-color: transparent;
+  width: 4px;
+}
 
+
+#alltask::-webkit-scrollbar-thumb {
+  background-color: rgb(143, 143, 143);
+  border-radius: 50px;
+}

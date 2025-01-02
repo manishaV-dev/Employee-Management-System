@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../other/Header";
 import CreateTask from "../other/CreateTask";
+import AllTask from "../other/AllTask";
 
 function AdminDashboard() {
   return (
@@ -8,6 +9,7 @@ function AdminDashboard() {
       <div className="h-screen w-full p-10">
         <Header />
         <CreateTask />
+        <AllTask />
       </div>
     </>
   );
