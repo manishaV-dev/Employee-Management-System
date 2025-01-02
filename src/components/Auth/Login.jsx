@@ -6,7 +6,9 @@ function Login() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log("Form Submitted");
+    // console.log("Form Submitted", email, password);
+    setEmail("");
+    setPassword("");
   };
 
   return (
@@ -30,6 +32,7 @@ function Login() {
               type="password"
               required
               placeholder="Enter your password"
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
             <button className="text-white border-none px-8 py-2 rounded-full text-sm outline-none bg-purple-600 placeholder:text-gray-400 mt-3">
