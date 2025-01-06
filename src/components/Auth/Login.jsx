@@ -13,7 +13,7 @@ function Login() {
 
   return (
     <>
-      <div className="flex items-center justify-center h-screen w-screen">
+      <div className="flex h-screen w-full items-center justify-center">
         <div className="border-2 border-purple-400 px-10 py-20 rounded-lg">
           <form
             onSubmit={submitHandler}

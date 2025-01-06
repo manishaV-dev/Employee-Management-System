@@ -1,14 +1,14 @@
 import "./App.css";
 import AdminDashboard from "./components/Dashboard/AdminDashboard";
-// import Login from "./components/Auth/Login";
-// import EmployeeDashboard from "./components/Dashboard/EmployeeDashboard";
+import Login from "./components/Auth/Login";
+import EmployeeDashboard from "./components/Dashboard/EmployeeDashboard";
 
 function App() {
   return (
     <>
-      {/* <Login /> */}
+      <Login />
       {/* <EmployeeDashboard /> */}
-      <AdminDashboard />
+      {/* <AdminDashboard /> */}
     </>
   );
 }
