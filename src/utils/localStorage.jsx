@@ -211,6 +211,12 @@ const employees = [
 
 export const setLocalStorage = () => {
   localStorage.setItem("employees", JSON.stringify(employees));
+  localStorage.setItem("admin", JSON.stringify(admin));
 };
 
-export const getLocalStorage = () => {};
+export const getLocalStorage = () => {
+  const employeeData = JSON.parse(localStorage.getItem("employees"));
+  const adminData = JSON.parse(localStorage.getItem("admin"));
+  //   console.log(JSON.parse(data));
+  console.log(employeeData, adminData); // to see this console result go to app.jsx and use useEffect hook and call this function
+};
