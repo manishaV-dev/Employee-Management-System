@@ -7,7 +7,7 @@ function Login({ handleLogin }) {
   const submitHandler = (e) => {
     e.preventDefault();
     // console.log("Form Submitted", email, password);
-    handleLogin(email, password);
+    handleLogin(email, password); // by this fun -we pass login data to the app component--- child to parent
     setEmail("");
     setPassword("");
   };
