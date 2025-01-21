@@ -15,16 +15,16 @@ function TaskList({ data }) {
       >
         {data.tasks.map((task, index) => {
           if (task.active) {
-            return <AcceptTask key={task.id || index} />;
+            return <AcceptTask key={task.id || index} data={task} />;
           }
           if (task.newTask) {
-            return <NewTask key={task.id || index} />;
+            return <NewTask key={task.id || index} data={task} />;
           }
           if (task.completed) {
-            return <CompleteTask key={task.id || index} />;
+            return <CompleteTask key={task.id || index} data={task} />;
           }
           if (task.failed) {
-            return <FailedTask key={task.id || index} />;
+            return <FailedTask key={task.id || index} data={task} />;
           }
 
           return null;
