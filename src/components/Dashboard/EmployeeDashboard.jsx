@@ -3,13 +3,15 @@ import Header from "../other/Header";
 import TaskListCard from "../other/TaskListCard";
 import TaskList from "../other/TaskList";
 
-function EmployeeDashboard() {
+function EmployeeDashboard({ data }) {
+  // when login with employee email
+  console.log(data); // {id: 1, firstName: 'Arjun', email: 'e@e.com', password: '123', taskCounts: {…}, …}
   return (
     <>
       <div className="p-20 bg-[#1c1c1c] h-screen">
-        <Header />
-        <TaskListCard />
-        <TaskList />
+        <Header data={data} />
+        <TaskListCard data={data} />
+        <TaskList data={data} />
       </div>
     </>
   );
