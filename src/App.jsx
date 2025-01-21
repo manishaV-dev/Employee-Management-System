@@ -2,29 +2,39 @@ import "./App.css";
 import AdminDashboard from "./components/Dashboard/AdminDashboard";
 import Login from "./components/Auth/Login";
 import EmployeeDashboard from "./components/Dashboard/EmployeeDashboard";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { getLocalStorage, setLocalStorage } from "./utils/localStorage";
+import { AuthContext } from "./context/AuthProvider";
 
 function App() {
   const [user, setUser] = useState(null);
 
-  // useEffect(() => {
-  //   // setLocalStorage()
-  //   getLocalStorage()
-  // }, [])
+  const authData = useContext(AuthContext);
+  // console.log(authData); // {employeeData: Array(5), adminData: Array(1)}
+  // console.log(authData.employeeData);
 
   const handleLogin = (email, password) => {
     if (email == "admin@me.com" && password == "123") {
       setUser("admin");
-      console.log("This is Admin");
-    } else if (email == "user@me.com" && password == "123") {
+    } else if (
+      authData &&
+      authData.employeeData?.find(
+        (e) => email === e.email && password === e.password
+      )
+    ) {
       setUser("employee");
-      console.log("This is user");
     } else {
       alert("Invalid Credentials");
     }
   };
 
+  
+  useEffect(() => {}, [])
+
+  // useEffect(() => {
+  //   // setLocalStorage()
+  //   getLocalStorage()
+  // }, [])
   return (
     <>
       {!user ? <Login handleLogin={handleLogin} /> : ""}
