@@ -5,6 +5,7 @@ import EmployeeDashboard from "./components/Dashboard/EmployeeDashboard";
 import { useContext, useEffect, useState } from "react";
 import { getLocalStorage, setLocalStorage } from "./utils/localStorage";
 import { AuthContext } from "./context/AuthProvider";
+import { data } from "autoprefixer";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -15,12 +16,14 @@ function App() {
   // console.log(authData.employeeData);
 
   // Setting up who is logged in localStorage
-  // useEffect(() => {
-  //   const loggedInUser = localStorage.getItem("loggedInUser");
-  //   if (loggedInUser) {
-  //     setUser(loggedInUser.role);
-  //   }
-  // }, [authData]);
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("loggedInUser");
+    if (loggedInUser) {
+      const userData = JSON.parse(loggedInUser);
+      setUser(userData.role);
+      setLoggedUserData(userData.data);
+    }
+  }, []);
 
   const handleLogin = (email, password) => {
     if (email == "admin@me.com" && password == "123") {
@@ -35,7 +38,7 @@ function App() {
         setLoggedUserData(employee);
         localStorage.setItem(
           "loggedInUser",
-          JSON.stringify({ role: "employee" })
+          JSON.stringify({ role: "employee", data: employee })
         );
       }
     } else {
