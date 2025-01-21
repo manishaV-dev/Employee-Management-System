@@ -13,9 +13,18 @@ function App() {
   // console.log(authData); // {employeeData: Array(5), adminData: Array(1)}
   // console.log(authData.employeeData);
 
+  // Setting up who is logged in localStorage
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("loggedInUser");
+    if (loggedInUser) {
+      setUser(loggedInUser.role);
+    }
+  }, []);
+
   const handleLogin = (email, password) => {
     if (email == "admin@me.com" && password == "123") {
       setUser("admin");
+      localStorage.setItem("loggedInUser", JSON.stringify({ role: "admin" }));
     } else if (
       authData &&
       authData.employeeData?.find(
@@ -23,13 +32,14 @@ function App() {
       )
     ) {
       setUser("employee");
+      localStorage.setItem(
+        "loggedInUser",
+        JSON.stringify({ role: "employee" })
+      );
     } else {
       alert("Invalid Credentials");
     }
   };
-
-  
-  useEffect(() => {}, [])
 
   // useEffect(() => {
   //   // setLocalStorage()
