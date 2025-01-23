@@ -54,8 +54,10 @@ function App() {
     <>
       {!user ? <Login handleLogin={handleLogin} /> : ""}
 
-      {user === "admin" && <AdminDashboard />}
-      {user === "employee" && <EmployeeDashboard data={loggedUserData} />}
+      {user === "admin" && <AdminDashboard changeUser={setUser} />}
+      {user === "employee" && (
+        <EmployeeDashboard data={loggedUserData} changeUser={setUser} />
+      )}
     </>
   );
 }
