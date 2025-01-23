@@ -36,6 +36,8 @@ function CreateTask() {
       }
     });
 
+    localStorage.setItem("employees", JSON.stringify(data));
+
     setTaskTitle("");
     setTaskDescription("");
     setTaskDate("");
